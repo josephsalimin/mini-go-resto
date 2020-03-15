@@ -10,7 +10,7 @@ add new menu, edit menu, and remove outdated menu.
 - Ruby 2.7.0
 - Rails 6.0.2.1
 
-## How to run application
+## How to run application in your local
 
-- chmod +x ./run.sh
-- ./run.sh
+- chmod +x ./run.local.sh
+- ./run.local.sh
