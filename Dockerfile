@@ -1,6 +1,7 @@
 FROM ruby:latest
 
 RUN apt-get update -qq && apt-get install -y nodejs yarn
+RUN yarn install --check-files
 RUN mkdir -p /app
 
 WORKDIR /app
