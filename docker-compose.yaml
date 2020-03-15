@@ -2,7 +2,7 @@ version: "3"
 services:
   web:
     build: .
-    image: mini-go-resto:${CI_COMMIT}
+    image: ${DOCKER_HUB_USERNAME}/mini-go-resto:${CI_COMMIT}
     volumes:
       - /tmp/db:/app/db
     ports:
