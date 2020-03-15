@@ -1,5 +1,8 @@
 FROM ruby:latest
 
+ARG ENTRYPOINT=build
+ARG RAILS_ENV=development
+
 RUN apt-get update -qq && apt-get install -yqq build-essential apt-transport-https apt-utils dialog
 
 # for nokogiri
@@ -30,10 +33,11 @@ RUN bundle install
 COPY . /app
 
 # Add a script to be executed every time the container starts.
-COPY entrypoint/run.sh /usr/bin/entrypoint.sh
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["/usr/bin/entrypoint.sh"]
+COPY deployment/docker-entrypoint/$ENTRYPOINT.sh /usr/bin/entrypoint.sh
+
 EXPOSE 3000
 
-# Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+RUN chmod +x /usr/bin/entrypoint.sh
+
+# Set docker entrypoint
+ENTRYPOINT ["/usr/bin/entrypoint.sh"]

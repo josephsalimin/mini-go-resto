@@ -5,6 +5,8 @@ services:
 
 before_install:
   - export CI_COMMIT=$(echo ${TRAVIS_COMMIT:0:8})
+  - export ENTRYPOINT=build
+  - export RAILS_ENV=development
   - docker-compose build
   - docker images
   - "which ssh-agent || (sudo apt-get update -y && sudo apt-get install -y openssh-client)"
