@@ -1,6 +1,6 @@
 FROM ruby:latest
 
-ARG ENTRYPOINT=build
+ARG ENTRYPOINT=up
 ARG RAILS_ENV=development
 
 RUN apt-get update -qq && apt-get install -yqq build-essential apt-transport-https apt-utils dialog
