@@ -7,8 +7,5 @@ rm -f /app/tmp/pids/server.pid
 echo "Migrating DB"
 RUBYOPT='-W0' bundle exec rake db:migrate db:test:prepare
 
-echo "Running rspec"
-RUBYOPT='-W0' bundle exec rspec --format documentation
-
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
 exec "$@"

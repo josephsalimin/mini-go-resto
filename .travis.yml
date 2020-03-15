@@ -17,4 +17,4 @@ install:
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
   - docker push $DOCKER_HUB_USERNAME/mini-go-resto:$CI_COMMIT
   - ssh $DEPLOYMENT_HOST "docker pull $DOCKER_HUB_USERNAME/hello-node:$CI_COMMIT"
-  - ssh $DEPLOYMENT_HOST "docker-compose run"
+  - ssh $DEPLOYMENT_HOST "docker-compose run -d"
